@@ -1,0 +1,54 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block content %}
+
+
+    <!-- Introduction section -->
+  <div class="header-intro">
+    <div class="text-box-intro text-center">
+      <h1></h1>
+      <a href="">National Elections 2024</a>
+    </div>
+  </div>
+
+  
+
+  <!-- All products section -->
+
+  <div class="album py-5 bg-light">
+  
+    <div class="container">
+      <div class="pb-3 h5">POLITICAL PARTY LIST</div>
+      <hr>
+      <br>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+        {% for product in my_products %}
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="img-fluid" id="zwino"  alt="Responsive image" src="{{product.image.url}}">
+              <div class="card-body">
+                <p class="card-text">
+                  <a class="text-info text-decoration-none" href="{{product.get_absolute_url}}"> {{ product.title | capfirst }} </a>
+                </p>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+      
+    </div>
+
+  </div>
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+

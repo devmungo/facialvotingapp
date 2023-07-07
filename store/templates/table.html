@@ -1,0 +1,55 @@
+{% extends "./store/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+<br><br>
+
+ <!-- Introduction section -->
+
+<br><br>
+
+<h3 class="h3 font-weight-bold text-center "><span class="highliter"></span></h3>
+
+<div class="table_responsive">
+    <table>
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Confirmation code</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for conf in all_confs %}
+
+          
+            <tr>
+                <td>{{forloop.counter}}</td>
+        
+                <td>{{conf.confirmation_code}}  </td>
+            </tr>
+
+            {% endfor %}
+
+            
+
+        </tbody>
+    </table>
+</div>
+
+
+<p style="margin-top: 40px;" class="text-center font-italic">For questions, contact John Doe at johndoe@quickvote.com</p>
+
+<br>
+
+    
+
+
+  
+<br><br>
+
+{% endblock %}

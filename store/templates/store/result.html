@@ -1,0 +1,45 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+ <!-- Introduction section -->
+
+ 
+    <div class="header">
+
+        <div class="text-box text-center">
+            <h1></h1>
+            <a href="">National Elections 2024 Thank you for voting.</a>
+        </div>
+
+    </div>
+
+    <br><br><br>
+    <h2 class="text-center">South Africa National Election Results</h2>
+    
+    <br><br>
+    <div class="main-r">
+        <!--cards -->
+    {% for party in my_products %}
+       <div class="card-r">
+       <div class="image-r">
+          <img src="{{party.image.url}}">
+       </div>
+       <div class="title-r">
+        <h1>{{party.title}}</h1>
+       </div>
+       <div class="des-r">
+        <h1 class="">{{party.vote}}%</h1>
+       </div>
+       </div>
+       <!--cards -->
+    {% endfor %}
+
+     </div>
+    
+    <br><br><br>
+
+
+{% endblock %}

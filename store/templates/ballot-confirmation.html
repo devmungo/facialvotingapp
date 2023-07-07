@@ -1,0 +1,39 @@
+{% extends "./store/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+<br><br>
+
+ <!-- Introduction section -->
+
+ <blockquote class="blockquote1 blockquote--bordered1">
+    <p class="blockqoute__text1" style="word-spacing: 150px;">
+        <span class="nonhighliter">Ballot</span> > <span class="nonhighliter">Review</span> > <span class="highliter">Confirmation</span>
+    </p>
+</blockquote>
+
+<br><br>
+
+<h3 class="h3 font-weight-bold text-center "><span class="highliter">Thank you for voting!</span></h3>
+
+<p class="text-center font-italic">Submitted: <span class="highliter">{% now "F j, Y" %} at {% now "g:i A" %}</span></p>
+<p class="text-center font-italic">Confirmation code: <span class="highliter">{{ confirmation_code }}</span></p>
+
+<p style="margin-top: 40px;" class="text-center font-italic"><span class="highliter">RESULTS WILL BE AVAILABLE WHEN VOTING CLOSES</span></p>
+
+
+<p style="margin-top: 40px;" class="text-center font-italic">For questions, contact John Doe at johndoe@quickvote.com</p>
+
+<br>
+
+    
+
+
+  
+<br><br>
+
+{% endblock %}

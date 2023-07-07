@@ -1,0 +1,26 @@
+{% include "store/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image</title>
+</head>
+<body>
+    
+    <h1>Upload Image</h1>
+    <form method="post" enctype="multipart/form-data" action="{% url 'recognize_image' %}">
+        {% csrf_token %}
+        <input type="file" name="image">
+        <button type="submit">Recognize</button>
+
+        {{ form }}
+    </form>
+
+    
+</body>
+</html>
+{% endblock %}

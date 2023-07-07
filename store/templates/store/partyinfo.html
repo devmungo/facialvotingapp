@@ -1,0 +1,102 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <main class="pt-5">
+
+        <div class="row g-3">
+
+            <div class="col-md-5 col-lg-5 order-md-first bg-light">
+            
+                <img class="img-fluid mx-auto d-block" alt="Responsive image" src="{{ product.image.url }}">
+            
+            </div>
+
+            <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
+
+                <h1 class="mb-0 h4 fw-bold"> {{ product.title }}</h1>
+
+                <strong> {{ product.brand }} </strong>
+                <hr><br>
+
+                <p> {{ product.description }} </p>
+
+                <a href="{% url 'ballot' %}"><input type="text" value = "View ballot" class = 'btn btn-primary'/></a>
+             
+
+                {% if not user.is_authenticated %}
+      
+                <br><br><br>
+                <blockquote class="blockquote blockquote--bordered">
+                    <p class="blockqoute__text" >
+                        Note: You have to be logged in order to access the ballot.
+                    </p>
+                </blockquote>
+            {% endif %}
+            </div>
+
+       
+
+            
+            
+        </div>
+
+    </main>
+
+    <br>
+
+</div>
+
+
+<script>
+
+    // Add button
+
+    $(document).on('click', '#add-button', function(e){
+
+        e.preventDefault();
+
+        $.ajax({
+
+            type: 'POST',
+            url: '',
+            data: {
+
+                product_id: $('#add-button').val(),
+                product_quantity: $('#select option:selected').text(),
+                csrfmiddlewaretoken: "{{csrf_token}}",
+                action: 'post'
+
+            },
+
+            success: function(json){
+
+                //console.log(json)
+
+                document.getElementById("cart-qty").textContent = json.qty
+
+
+            },
+
+            error: function(xhr, errmsg, err){
+
+
+            }
+
+        });
+
+
+    })
+
+
+
+
+</script>
+
+
+
+{% endblock %}

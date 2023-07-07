@@ -1,0 +1,72 @@
+{% extends "./store/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+<br><br>
+
+ <!-- Introduction section -->
+
+ <blockquote class="blockquote1 blockquote--bordered1">
+    <p class="blockqoute__text1" style="word-spacing: 150px;">
+        <span class="nonhighliter">Ballot</span> > <span class="highliter">Review</span> > <span class="nonhighliter">Confirmation</span>
+    </p>
+</blockquote>
+
+<br><br>
+
+<p class="h3 bold text-center">2024 National Elections</p>
+<h3></h3>
+
+<br>
+
+    <blockquote class="blockquote blockquote--bordered">
+        <p class="blockqoute__text" >
+            Finalize your choice by selecting <span class="highliter">Vote</span>. To make changes select <span class="highliter">Edit</span>
+        </p>
+    </blockquote>
+
+
+<!-- Table -->
+<div class="table_responsive">
+    <table>
+        <thead>
+            <tr>
+               
+                <th>Party Image</th>
+                <th>Party Name</th>
+           
+               
+            </tr>
+        </thead>
+
+        <tbody>
+            
+            <tr>
+                <td>
+                    <img src="{{image.url}}" alt="EFF Logo">
+                </td>
+                <td>{{ title }}</td>
+            </tr>
+        </tbody>
+        
+    </table>
+    
+</div>
+
+<form method="POST" action="{% url 'result' pk %}">
+    {% csrf_token %}
+
+    <a href="{% url 'ballot' %}"><input type="text" value = "<< Edit" class = 'btn btn-primary' id="editballot"></a>
+    <input type="submit" value = "Vote >>" class = 'btn btn-primary' id="submitballot">
+   
+    
+</form>
+
+  
+<br><br>
+
+{% endblock %}

@@ -1,0 +1,134 @@
+
+{% include "store/base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    <style>
+
+
+        body{
+
+
+            background-color: gray;
+
+        }
+
+
+
+    </style>
+
+
+
+
+    <body>
+
+        <br>
+
+        <div class="container bg-white shadow-md p-5 form-layout">
+
+            <h3> Login to your account </h3>
+
+            <hr>
+
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.username|as_crispy_field}}
+
+
+                <br> 
+
+
+                {{form.password|as_crispy_field}}
+
+                <br> 
+
+
+                <input type="hidden" name="image" id="image-input">
+                <video id="video" width="340" height="180" autoplay></video>
+                <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+
+                
+                <button id="capture-btn" type="submit" class="btn btn-primary navbar-btn text-white w-100 p-2"> <i class="fa fa-key" aria-hidden="true"></i> &nbsp; Login </button>
+
+                <br> <br>
+
+                {{form.non_field_errors}}
+
+                <div class="text-center">
+
+                    <a href="{% url 'register' %}"> Don't have an account? </a>
+
+
+                    <br> <br>
+
+                    <a href="{% url 'reset_password' %}"> Forgotten your password? </a>
+
+
+                </div>
+
+                
+
+
+            </form>
+
+
+
+
+
+        </div>
+
+
+        <script>
+
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const captureBtn = document.getElementById('capture-btn');
+            const imageInput = document.getElementById('image-input');
+            const uploadForm = document.getElementById('upload-form');
+            const constraints = {
+              video: true
+            };
+            
+            navigator.mediaDevices.getUserMedia(constraints)
+              .then(function (mediaStream) {
+                video.srcObject = mediaStream;
+              })
+              .catch(function (error) {
+                console.log('Unable to access camera: ', error);
+              });
+            
+            captureBtn.addEventListener('click', function () {
+              canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+              const image = canvas.toDataURL('image/png');
+              imageInput.value = image.replace('data:image/png;base64,', '');
+              uploadForm.submit();
+            });
+            
+                </script>
+    </body>
+
+    <br> <br>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+{% extends "./store/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+<br><br>
+
+ <!-- Introduction section -->
+
+ <!-- Contact Form -->
+ <div class="container-contact">
+    <div class="content-contact">
+      <div class="left-side-contact">
+        <div class="phone details-contact">
+          <i class="fas fa-phone-alt"></i>
+          <div class="topic-contact">Phone</div>
+          <div class="text-one-contact">012 345 6789</div>
+        </div>
+        <div class="email details-contact">
+          <i class="fas fa-envelope"></i>
+          <div class="topic-contact">Email</div>
+          <div class="text-one-contact">johndoe@quickvote.com</div>
+        </div>
+      </div>
+      <div class="right-side-contact">
+        <div class="topic-text-contact">We love hearing from you!</div>
+        <p>If you have any questions, concerns or would just like to give us feedback please get in touch with us.</p>
+
+        <form method="POST" action="{% url 'contact' %}">
+            {% csrf_token %}
+          <div class="input-box-contact">
+            <input type="text" name="name" placeholder="Enter your name" />
+          </div>
+          <div class="input-box-contact">
+            <input type="text" name="email" placeholder="Enter your email" />
+          </div>
+          <div class="input-box-contact">
+            <input type="text" name="subject" placeholder="Enter your subject" />
+          </div>
+          <div class="input-box-contact message-box-contact">
+            <textarea name="message" placeholder="Enter your message"></textarea>
+          </div>
+          <div class="button-contact">
+            <input type="submit" value = "Submit" class = 'btn btn-primary' style="width: 120px; padding: 10px 10px;">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<br>
+
+    
+
+
+  
+<br><br>
+
+{% endblock %}

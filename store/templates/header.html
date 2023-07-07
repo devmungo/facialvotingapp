@@ -1,0 +1,29 @@
+<section class="py-4 text-center container">
+
+    <div class="row py-lg-5">
+    
+        <div class="col-lg-6 col-md-8 mx-auto">
+
+            <h4> Quickvote... Voting at it's finest. </h4>
+
+            
+            <h3 style = "margin-bottom: 20px"><strong>Results</strong></h3>
+            {% for product in my_products %}
+                <ul class="list-group">
+         
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{product.title}}
+                        <span class="badge bg-primary rounded-pill">{{ product.vote }}%</span>
+                    </li>
+             
+                    </li>
+                </ul>
+
+            {% endfor %}
+
+        </div>
+    
+    </div>
+
+
+</section>

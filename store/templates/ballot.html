@@ -1,0 +1,82 @@
+{% extends "./store/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<br><br>
+
+ <!-- Introduction section -->
+
+ <blockquote class="blockquote1 blockquote--bordered1">
+    <p class="blockqoute__text1" style="word-spacing: 150px;">
+        <span class="highliter">Ballot</span> > <span class="nonhighliter">Review</span> > <span class="nonhighliter">Confirmation</span>
+    </p>
+</blockquote>
+
+<br><br>
+
+<p class="h3 bold text-center">2024 National Elections</p>
+<h3></h3>
+
+<br>
+
+    <blockquote class="blockquote blockquote--bordered">
+        <p class="blockqoute__text" >
+            Your choice are secret and cannot be accessed by the adminstrator.
+        </p>
+    </blockquote>
+
+
+<!-- Table -->
+<div class="table_responsive">
+    <p class="h6 bold">You only have <span class="highliter">ONE</span> vote.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Party Image</th>
+                <th>Party Name</th>
+           
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for party in allParties %}
+
+          
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>
+                    <img src="{{party.image.url}}" alt="EFF Logo">
+                </td>
+                <td>{{party.title}}</td>
+        
+                <td>
+                <form method="POST" action="{% url 'ballot_review' party.id %}">
+                    {% csrf_token %}
+                    <span class="action_btn">
+                        {% if user.vote_status == False %}
+                            <input type="submit" value = "Select Party" class = 'btn btn-primary'>
+                        {% else %}
+                            <input disabled="true" value = "You have already voted" class = 'btn btn-primary'>
+                        {% endif %}
+                    </span>
+                
+                </form>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+            
+
+        </tbody>
+    </table>
+</div>
+  
+<br><br>
+
+{% endblock %}
