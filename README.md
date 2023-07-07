@@ -9,4 +9,6 @@ Some of the features of this project includes login, registration, email verific
 
 Architecture
 
-<img src="https://drive.google.com/file/d/1GIX2Wk9aB3RyUsVXCYemKrlJQWleArQp/view?usp=drive_link">
+<img src="https://github.com/devmungo/facialvotingapp/blob/main/Final%20Architecture.png">
+
+
