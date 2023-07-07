@@ -9,4 +9,4 @@ Some of the features of this project includes login, registration, email verific
 
 Architecture
 
-<img src="https://github.com/dev-rathankumar/greatkart-pre-deploy/blob/main/media/greatkart-screenshot.jpg](https://drive.google.com/file/d/1GIX2Wk9aB3RyUsVXCYemKrlJQWleArQp/view?usp=sharing)https://drive.google.com/file/d/1GIX2Wk9aB3RyUsVXCYemKrlJQWleArQp/view?usp=sharing">
+<img src="https://drive.google.com/file/d/1GIX2Wk9aB3RyUsVXCYemKrlJQWleArQp/view?usp=drive_link">
